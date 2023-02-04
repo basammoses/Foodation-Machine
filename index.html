@@ -10,23 +10,30 @@
   </script>
 </head>
 <body>
+  <div class="box header">foodation machine</div>
   <div class="wrapper">
-    <div class="box header">foodation machine</div>
     <div class="box sidebar">
       <form>
-      <input placeholder="enter food!" value="" >
+        <div class="group">
+          <input required=""  type="text" value="" class="input">
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>search for your food here!</label>
+        </div>
       <button>
       SEARCH!
       </button>
     </form>
+    <p id="calorie"></p>
+    <p id="protein"></p>
   </div>
     <div class="box content">
       <br/> 
-      
-       <p id='image' class="results">Picture Here</p>
+       <p class="label"></p>
+       <img src ='' id='image' class="results"></img>
       
       <img/> </div>
-    <div class="box footer">placeholder text based on user input
+    <div class="box footer">
     </div>
   </div>
 </body>
