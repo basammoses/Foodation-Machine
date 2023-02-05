@@ -47,6 +47,24 @@ const labelResult = json.parsed[0].food.label
   const carbs = json.parsed[0].food.nutrients.CHOCDF
   console.log(carbs)
   
+  const allChoices = json.hints
+   
+  
+    for (let i = 0; i < allChoices.length; i++) {
+    const multiChoices = allChoices[i].food.nutrients
+      console.log(multiChoices)
+      for  (let ENERC_KCAL in multiChoices) {
+        console.log(ENERC_KCAL)
+      }
+      
+
+    }
+
+  
+
+  
+
+
   let totalNutri2 = ['Calories', 'Fat', 'Fiber', 'Protien', 'Carbs']
   let totalNutri = [calories, `${fatcontent} grams`, `${fiber} grams`, `${protein} grams`, `${carbs} grams`]
   results2.innerHTML = ''
@@ -79,7 +97,7 @@ const labelResult = json.parsed[0].food.label
   
   // results2.innerHTML = newResults
 results.src = imageResult
-document.querySelector('.label').textContent = labelResult
+document.querySelector('.label').textContent = `${labelResult} (per serving)`
   
   
   
