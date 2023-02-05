@@ -34,7 +34,7 @@ form.addEventListener('submit', async element => {
   console.log(json)
 const imageResult = json.parsed[0].food.image
 const labelResult = json.parsed[0].food.label
-  const nutriResults = json.parsed[0].food.nutrients
+  //const nutriResults = json.parsed[0].food.nutrients
   //const newResults = JSON.stringify(nutriResults)
   const calories = json.parsed[0].food.nutrients.ENERC_KCAL
   console.log(calories)
@@ -48,17 +48,43 @@ const labelResult = json.parsed[0].food.label
   console.log(carbs)
   
   const allChoices = json.hints
-   
+   const group = document.querySelector('.group')
+  const nutri2 = document.querySelector('.nutrition2')
+  nutri2.innerHTML = ''
+  let divv = document.createElement(`div`)
+  divv.className = 'nutrition2'
+  group.appendChild(divv)
+  console.log(nutri2)
   
-    for (let i = 0; i < allChoices.length; i++) {
-    const multiChoices = allChoices[i].food.nutrients
+  
+  for (let i = 0; i < allChoices.length; i++) {
+    const multiChoices = allChoices[i].food
       console.log(multiChoices)
-      for  (let ENERC_KCAL in multiChoices) {
-        console.log(ENERC_KCAL)
-      }
+     
+      
+      let p = document.createElement('p')
+      p.className = 'nutrition2'
+      nutri2.appendChild(p)
+      p.innerText = multiChoices.label
+      
+      
+  // const calories2 = multiChoices.nutrients.ENERC_KCAL
+  // console.log(calories2)
+  // const fatcontent2 = multiChoices.nutrients.FAT
+  // console.log(fatcontent2)
+  // const fiber2 = multiChoices.nutrients.FIBTG
+  // console.log(fiber2)
+  // const protein2 = multiChoices.nutrients.PROCNT
+  // console.log(protein2)
+  // const carbs2 = multiChoices.nutrients.CHOCDF
+  // console.log(carbs2)
+      
+    
+    
+    }
       
 
-    }
+    
 
   
 
