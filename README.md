@@ -1,6 +1,6 @@
 # PROJECT1
 Nutrition Planner
-giving randomized recipes based on user needs and dietary restrictions. i would like to transition it to a more complex sorting function once the baseline is created for the website
+providing a complex food search index to help plan your dietary needs for that day. i would like to transition it to a more complex sorting function once the baseline is created for the website
 
 Wednsday - complete propsal and initialize javascript segment of project
 
