@@ -69,7 +69,7 @@ const labelResult = json.parsed[0].food.label
     p.addEventListener('click', (e) => { 
       setNutri(multiChoices.nutrients)
       results.src = multiChoices.image
-
+      document.querySelector('.label').textContent = `${multiChoices.label} (per serving)`
     })
   
       
