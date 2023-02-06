@@ -51,9 +51,9 @@ const labelResult = json.parsed[0].food.label
    const group = document.querySelector('.group')
   const nutri2 = document.querySelector('.nutrition2')
   nutri2.innerHTML = ''
-  let divv = document.createElement(`div`)
-  divv.className = 'nutrition2'
-  group.appendChild(divv)
+  // let divv = document.createElement(`div`)
+  // divv.className = 'nutrition2'
+  // group.appendChild(divv)
   console.log(nutri2)
   
   
@@ -63,59 +63,38 @@ const labelResult = json.parsed[0].food.label
      
       
       let p = document.createElement('p')
-      p.className = 'nutrition2'
+      p.className = 'foodname'
       nutri2.appendChild(p)
-      p.innerText = multiChoices.label
+    p.innerText = multiChoices.label
+    p.addEventListener('click', (e) => { 
+      setNutri(multiChoices.nutrients)
+      results.src = multiChoices.image
+
+    })
+  
       
-      
-  // const calories2 = multiChoices.nutrients.ENERC_KCAL
-  // console.log(calories2)
-  // const fatcontent2 = multiChoices.nutrients.FAT
-  // console.log(fatcontent2)
-  // const fiber2 = multiChoices.nutrients.FIBTG
-  // console.log(fiber2)
-  // const protein2 = multiChoices.nutrients.PROCNT
-  // console.log(protein2)
-  // const carbs2 = multiChoices.nutrients.CHOCDF
-  // console.log(carbs2)
+   const calories2 = multiChoices.nutrients.ENERC_KCAL
+   console.log(calories2)
+    const fatcontent2 = multiChoices.nutrients.FAT
+   console.log(fatcontent2)
+   const fiber2 = multiChoices.nutrients.FIBTG
+   console.log(fiber2)
+   const protein2 = multiChoices.nutrients.PROCNT
+   console.log(protein2)
+   const carbs2 = multiChoices.nutrients.CHOCDF
+   console.log(carbs2)
       
     
     
     }
       
 
-    
-
   
 
-  
+    setNutri(json.parsed[0].food.nutrients)
 
 
-  let totalNutri2 = ['Calories', 'Fat', 'Fiber', 'Protien', 'Carbs']
-  let totalNutri = [calories, `${fatcontent} grams`, `${fiber} grams`, `${protein} grams`, `${carbs} grams`]
-  results2.innerHTML = ''
-  for (let i = 0; i < totalNutri.length; i++) {
-    
-    
-    let p = document.createElement('p')
-      p.classList = 'nutrition'
-      results2.appendChild(p)
-    p.innerText = `${totalNutri2[i]}: ${totalNutri[i]}`
 
-    
-  }
-  console.log(totalNutri[0])
-  if (totalNutri[0] <= 150) {
-    console.log('sucess!')
-  
-    console.log(feedbackCalorie)
-    feedbackCalorie.innnerText = "This food is a good low calorie choice!"
-
-    
-  }
-  if (totalNutri[1] <= 10) {
-    feedbackProtein.innerHTML = "This food is high is protein!"
-  }
   input.value = ''
     
     // ul.innerText = totalNutri[i]
@@ -134,6 +113,37 @@ document.querySelector('.label').textContent = `${labelResult} (per serving)`
 })
   
 
+
+function setNutri(arr) {
+  
+    
+  let totalNutri2 = ['Calories', 'Fat', 'Fiber', 'Protein', 'Carbs']
+  let totalNutri = [arr.ENERC_KCAL, `${arr.FAT} grams`, `${arr.FIBTG} grams`, `${arr.PROCNT} grams`, `${arr.CHOCDF} grams`]
+  results2.innerHTML = ''
+  for (let i = 0; i < totalNutri.length; i++) {
+    
+    
+    let p = document.createElement('p')
+    p.classList = 'nutrition'
+    results2.appendChild(p)
+    p.innerText = `${totalNutri2[i]}: ${totalNutri[i]}`
+
+  }
+
+  console.log(totalNutri[0])
+  if (totalNutri[0] <= 150) {
+    console.log('sucess!')
+  
+    console.log(feedbackCalorie)
+    feedbackCalorie.innnerText = "This food is a good low calorie choice!"
+
+    
+  }
+  if (totalNutri[1] <= 10) {
+    feedbackProtein.innerHTML = "This food is high is protein!"
+  }
+
+}
   // async function FoodInfo(id) {
   //   const res = fetch(`${urlInput, id}`, options)
   //   const json = await res.json()

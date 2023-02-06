@@ -290,3 +290,21 @@ label {
 .img{
   justify-content: center;
 }
+
+
+  .foodname:hover {
+    cursor: pointer;
+    color: #fff;
+    box-shadow: inset 200px 0 0 0 #54b3d6;
+  }
+  
+  
+  
+  
+  .foodname {
+  box-shadow: inset 0 0 0 0 #54b3d6;
+  color: #54b3d6;
+	padding: 0 .25rem;
+	margin: 0 -.25rem;
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  }
